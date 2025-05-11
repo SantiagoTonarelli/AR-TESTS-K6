@@ -10,17 +10,13 @@ dotenv.config();
 
 const app = express();
 
-// Middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// Swagger UI
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
-// Routes
 app.use("/api/items", configureItemRoutes());
 
-// Health check endpoint
 app.get("/health", (req, res) => {
   res.status(200).send("OK");
 });

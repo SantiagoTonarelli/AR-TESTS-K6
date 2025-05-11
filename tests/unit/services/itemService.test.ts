@@ -11,7 +11,6 @@ describe('ItemService', () => {
   let itemService: ItemService;
   let itemRepository: jest.Mocked<ItemRepository>;
   
-  // Sample item data for testing
   const mockItem: Item = {
     id: 1,
     name: 'Test Item',
@@ -21,10 +20,8 @@ describe('ItemService', () => {
   } as Item;
   
   beforeEach(() => {
-    // Clear all mocks before each test
     jest.clearAllMocks();
     
-    // Create a mocked instance of ItemRepository
     itemRepository = new ItemRepository() as jest.Mocked<ItemRepository>;
     itemService = new ItemService(itemRepository);
   });

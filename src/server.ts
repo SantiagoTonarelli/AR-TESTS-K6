@@ -9,7 +9,6 @@ const PORT = process.env.PORT || 3000;
 
 async function startServer() {
   try {
-    // Sync models with database
     await sequelize.sync();
     console.log('Database connection has been established successfully.');
     
@@ -17,7 +16,6 @@ async function startServer() {
       console.log(`Server is running on port ${PORT}`);
     });
 
-    // For graceful shutdown
     process.on('SIGTERM', () => {
       console.log('SIGTERM signal received: closing HTTP server');
       server.close(async () => {
@@ -33,7 +31,6 @@ async function startServer() {
   }
 }
 
-// Start the server
 const server = startServer();
 
 export default server;

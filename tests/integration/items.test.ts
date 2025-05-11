@@ -6,13 +6,12 @@ import app from '../../src/app';
 import { Item } from '../../src/models/item';
 import { ItemRepository } from '../../src/repositories/itemRepository';
 
-// Mock the repository module
 jest.mock('../../src/repositories/itemRepository');
 
 describe('Items API', () => {
   let mockItemRepository: jest.Mocked<ItemRepository>;
   
-  const baseMockItemDate = new Date(); // Use a fixed date for mockItem for consistency
+  const baseMockItemDate = new Date();
   const mockItem = {
     id: 1,
     name: 'Test Item',
